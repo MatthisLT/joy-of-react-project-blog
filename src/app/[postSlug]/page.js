@@ -6,6 +6,16 @@ import BlogContent from '@/components/BlogContent';
 
 import styles from './postSlug.module.css';
 
+export async function generateMetadata({ params }) {
+  const { frontmatter } = await loadBlogPost(params.postSlug);
+  const { title, abstract: description } = frontmatter;
+
+  return {
+    title,
+    description,
+  };
+}
+
 async function BlogPost({ params }) {
   const { frontmatter, content } = await loadBlogPost(
     params.postSlug
