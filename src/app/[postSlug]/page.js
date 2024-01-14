@@ -1,23 +1,22 @@
 import React from 'react';
 
+import { loadBlogPost } from '@/helpers/file-helpers';
 import BlogHero from '@/components/BlogHero';
+import BlogContent from '@/components/BlogContent';
 
 import styles from './postSlug.module.css';
 
-function BlogPost() {
+async function BlogPost({ params }) {
+  const { frontmatter, content } = await loadBlogPost(
+    params.postSlug
+  );
+  const { title, publishedOn } = frontmatter;
+
   return (
     <article className={styles.wrapper}>
-      <BlogHero
-        title="Example post!"
-        publishedOn={new Date()}
-      />
+      <BlogHero title={title} publishedOn={publishedOn} />
       <div className={styles.page}>
-        <p>This is where the blog post will go!</p>
-        <p>
-          You will need to use <em>MDX</em> to render all of
-          the elements created from the blog post in this
-          spot.
-        </p>
+        <BlogContent>{content}</BlogContent>
       </div>
     </article>
   );
