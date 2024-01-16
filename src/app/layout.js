@@ -4,6 +4,7 @@ import { cookies } from 'next/headers';
 import clsx from 'clsx';
 
 import {
+  BLOG_DESCRIPTION,
   BLOG_TITLE,
   LIGHT_TOKENS,
   DARK_TOKENS,
@@ -35,7 +36,7 @@ export const metadata = {
     template: `%s • ${BLOG_TITLE}`,
     default: BLOG_TITLE,
   },
-  description: 'A wonderful blog about JavaScript',
+  description: BLOG_DESCRIPTION,
 };
 
 function RootLayout({ children }) {
