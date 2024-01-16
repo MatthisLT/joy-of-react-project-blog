@@ -1,13 +1,20 @@
+'use client';
+
 import React from 'react';
 import clsx from 'clsx';
 import { Rss, Sun, Moon } from 'react-feather';
 
 import Logo from '@/components/Logo';
 import VisuallyHidden from '@/components/VisuallyHidden';
+import { ThemeContext } from '../ThemeProvider';
 
 import styles from './Header.module.css';
 
-function Header({ theme, className, ...delegated }) {
+function Header({ className, ...delegated }) {
+  const { theme, switchTheme } = React.useContext(ThemeContext);
+
+  const ThemeIconComponent = theme === 'dark' ? Moon : Sun;
+
   return (
     <header
       className={clsx(styles.wrapper, className)}
@@ -24,15 +31,11 @@ function Header({ theme, className, ...delegated }) {
               transform: 'translate(2px, -2px)',
             }}
           />
-          <VisuallyHidden>
-            View RSS feed
-          </VisuallyHidden>
+          <VisuallyHidden>View RSS feed</VisuallyHidden>
         </button>
-        <button className={styles.action}>
-          <Sun size="1.5rem" />
-          <VisuallyHidden>
-            Toggle dark / light mode
-          </VisuallyHidden>
+        <button className={styles.action} onClick={switchTheme}>
+          <ThemeIconComponent size="1.5rem" />
+          <VisuallyHidden>Toggle dark / light mode</VisuallyHidden>
         </button>
       </div>
     </header>
