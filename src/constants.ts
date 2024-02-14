@@ -3,9 +3,11 @@ export const BLOG_DESCRIPTION = 'A wonderful blog about JavaScript';
 
 export const THEME_COOKIE_NAME = 'theme';
 
-export const DEFAULT_THEME = 'light';
+export type AllowedThemes = 'light' | 'dark';
 
-export const LIGHT_COLORS = {
+export const DEFAULT_THEME: AllowedThemes = 'light';
+
+export const LIGHT_COLORS: Record<string, string> = {
   '--color-text': 'hsl(0deg 0% 5%)',
   '--color-primary-100': 'hsl(240deg 100% 90%)',
   '--color-primary-300': 'hsl(242deg 100% 70%)',
@@ -32,7 +34,7 @@ export const LIGHT_COLORS = {
   '--color-gray-1000': 'black',
 };
 
-export const DARK_COLORS = {
+export const DARK_COLORS: Record<string, string> = {
   '--color-text': 'hsl(0deg 0% 100%)',
   '--color-primary-100': 'hsl(50deg 100% 90%)',
   '--color-primary-300': 'hsl(50deg 100% 70%)',
@@ -118,9 +120,9 @@ export const DARK_SHADOWS = {
 export const LIGHT_TOKENS = {
   ...LIGHT_COLORS,
   ...LIGHT_SHADOWS,
-};
+} as React.CSSProperties;
 
 export const DARK_TOKENS = {
   ...DARK_COLORS,
   ...DARK_SHADOWS,
-};
+} as React.CSSProperties;

@@ -3,12 +3,18 @@ import clsx from 'clsx';
 
 import styles from './VisuallyHidden.module.css';
 
-function VisuallyHidden({
-  as: Element = 'span',
+type VisuallyHiddenProps<As extends React.ElementType> = {
+  as?: As;
+} & React.ComponentPropsWithoutRef<As>;
+
+function VisuallyHidden<As extends React.ElementType = 'div'>({
+  as,
   className,
   children,
   ...delegated
-}) {
+}: VisuallyHiddenProps<As>) {
+  const Element = as || 'span';
+
   return (
     <Element
       className={clsx(styles.wrapper, className)}

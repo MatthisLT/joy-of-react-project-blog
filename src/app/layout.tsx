@@ -10,6 +10,7 @@ import {
   DARK_TOKENS,
   DEFAULT_THEME,
   THEME_COOKIE_NAME,
+  type AllowedThemes,
 } from '@/constants';
 
 import Header from '@/components/Header';
@@ -39,10 +40,10 @@ export const metadata = {
   description: BLOG_DESCRIPTION,
 };
 
-function RootLayout({ children }) {
+function RootLayout({ children }: { children: React.ReactNode }) {
   // TODO: Dynamic theme depending on user preference
   const savedTheme = cookies().get(THEME_COOKIE_NAME);
-  const theme = savedTheme?.value || DEFAULT_THEME;
+  const theme = (savedTheme?.value as AllowedThemes) || DEFAULT_THEME;
 
   return (
     <RespectMotionPreferences>

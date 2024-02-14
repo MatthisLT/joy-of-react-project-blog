@@ -10,11 +10,17 @@ import SliderControl from '@/components/SliderControl';
 import Equation from './Equation';
 import styles from './DivisionGroupsDemo.module.css';
 
+type DivisionGroupsDemoProps = {
+  numOfItems: number;
+  initialNumOfGroups: number;
+  includeRemainderArea: boolean;
+};
+
 function DivisionGroupsDemo({
   numOfItems = 12,
   initialNumOfGroups = 1,
   includeRemainderArea,
-}) {
+}: DivisionGroupsDemoProps) {
   const componentId = React.useId();
 
   const [numOfGroups, setNumOfGroups] = React.useState(
@@ -41,7 +47,7 @@ function DivisionGroupsDemo({
 
   return (
     <LayoutGroup>
-      <Card as="section" className={styles.wrapper}>
+      <Card className={styles.wrapper}>
         <header className={styles.header}>
           <SliderControl
             label="Number of Groups"
@@ -49,8 +55,10 @@ function DivisionGroupsDemo({
             step={1}
             min={1}
             max={4}
-            value={numOfGroups}
-            onChange={(ev) => setNumOfGroups(Number(ev.target.value))}
+            value={numOfGroups.toString()}
+            onChange={(ev: React.ChangeEvent<HTMLInputElement>) =>
+              setNumOfGroups(Number(ev.target.value))
+            }
           />
         </header>
 

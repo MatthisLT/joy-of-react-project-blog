@@ -3,7 +3,9 @@ import clsx from 'clsx';
 
 import styles from './Slider.module.css';
 
-function Slider({ className, ...delegated }) {
+type SliderProps = React.ComponentProps<'input'> & {};
+
+function Slider({ className, ...delegated }: SliderProps) {
   return (
     <input
       type="range"

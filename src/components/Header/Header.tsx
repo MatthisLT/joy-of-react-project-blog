@@ -6,12 +6,19 @@ import { Rss, Sun, Moon } from 'react-feather';
 
 import Logo from '@/components/Logo';
 import VisuallyHidden from '@/components/VisuallyHidden';
-import { ThemeContext } from '../ThemeProvider';
+import {
+  ThemeContext,
+  type ThemeContextType,
+} from '../ThemeProvider';
 
 import styles from './Header.module.css';
 
-function Header({ className, ...delegated }) {
-  const { theme, switchTheme } = React.useContext(ThemeContext);
+type HeaderProps = React.ComponentProps<'header'> & {};
+
+function Header({ className, ...delegated }: HeaderProps) {
+  const { theme, switchTheme } = React.useContext(
+    ThemeContext
+  ) as ThemeContextType;
 
   const ThemeIconComponent = theme === 'dark' ? Moon : Sun;
 

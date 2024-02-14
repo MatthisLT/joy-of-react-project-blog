@@ -3,7 +3,12 @@ import { Loader } from 'react-feather';
 
 import styles from './Spinner.module.css';
 
-const Spinner = ({ color, size }) => {
+type SpinnerProps = {
+  color: string;
+  size: number;
+};
+
+const Spinner = ({ color, size }: SpinnerProps) => {
   return (
     <div className={styles.wrapper}>
       <Loader color={color} size={size} />

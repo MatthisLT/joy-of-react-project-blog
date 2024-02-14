@@ -7,15 +7,31 @@ import {
   LIGHT_TOKENS,
   DARK_TOKENS,
   THEME_COOKIE_NAME,
+  type AllowedThemes,
 } from '@/constants';
 
-export const ThemeContext = React.createContext();
+export type ThemeContextType = {
+  theme: AllowedThemes;
+  switchTheme: () => void;
+};
 
-function ThemeProvider({ initialTheme, children }) {
+export const ThemeContext =
+  React.createContext<ThemeContextType | null>(null);
+
+type ThemeProviderProps = {
+  initialTheme: AllowedThemes;
+  children: React.ReactNode;
+};
+
+function ThemeProvider({
+  initialTheme,
+  children,
+}: ThemeProviderProps) {
   const [theme, setTheme] = React.useState(initialTheme);
 
   function switchTheme() {
-    const nextTheme = theme === 'light' ? 'dark' : 'light';
+    const nextTheme: AllowedThemes =
+      theme === 'light' ? 'dark' : 'light';
 
     setTheme(nextTheme);
 

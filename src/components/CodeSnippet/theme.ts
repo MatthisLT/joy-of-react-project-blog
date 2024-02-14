@@ -137,8 +137,7 @@ const theme = {
     'editor.rangeHighlightBackground': '#BD93F915',
     'editor.snippetTabstopHighlightBackground': '#282A36',
     'editor.snippetTabstopHighlightBorder': '#6272A4',
-    'editor.snippetFinalTabstopHighlightBackground':
-      '#282A36',
+    'editor.snippetFinalTabstopHighlightBackground': '#282A36',
     'editor.snippetFinalTabstopHighlightBorder': '#50FA7B',
     'editorWhitespace.foreground': '#FFFFFF1A',
     'editorIndentGuide.background': '#FFFFFF1A',
@@ -151,15 +150,11 @@ const theme = {
     'editorBracketHighlight.foreground4': '#50FA7B',
     'editorBracketHighlight.foreground5': '#BD93F9',
     'editorBracketHighlight.foreground6': '#FFB86C',
-    'editorBracketHighlight.unexpectedBracket.foreground':
-      '#FF5555',
+    'editorBracketHighlight.unexpectedBracket.foreground': '#FF5555',
     'editorOverviewRuler.border': '#191A21',
-    'editorOverviewRuler.selectionHighlightForeground':
-      '#FFB86C',
-    'editorOverviewRuler.wordHighlightForeground':
-      '#8BE9FD',
-    'editorOverviewRuler.wordHighlightStrongForeground':
-      '#50FA7B',
+    'editorOverviewRuler.selectionHighlightForeground': '#FFB86C',
+    'editorOverviewRuler.wordHighlightForeground': '#8BE9FD',
+    'editorOverviewRuler.wordHighlightStrongForeground': '#50FA7B',
     'editorOverviewRuler.modifiedForeground': '#8BE9FD80',
     'editorOverviewRuler.addedForeground': '#50FA7B80',
     'editorOverviewRuler.deletedForeground': '#FF555580',
@@ -175,8 +170,7 @@ const theme = {
     'gitDecoration.deletedResourceForeground': '#FF5555',
     'gitDecoration.untrackedResourceForeground': '#50FA7B',
     'gitDecoration.ignoredResourceForeground': '#6272A4',
-    'gitDecoration.conflictingResourceForeground':
-      '#FFB86C',
+    'gitDecoration.conflictingResourceForeground': '#FFB86C',
     'diffEditor.insertedTextBackground': '#50FA7B20',
     'diffEditor.removedTextBackground': '#FF555550',
     'editorWidget.background': '#21222C',
@@ -200,10 +194,8 @@ const theme = {
     'peekViewTitleLabel.foreground': '#F8F8F2',
     'merge.currentHeaderBackground': '#50FA7B90',
     'merge.incomingHeaderBackground': '#BD93F990',
-    'editorOverviewRuler.currentContentForeground':
-      '#50FA7B',
-    'editorOverviewRuler.incomingContentForeground':
-      '#BD93F9',
+    'editorOverviewRuler.currentContentForeground': '#50FA7B',
+    'editorOverviewRuler.incomingContentForeground': '#BD93F9',
     'panel.background': '#282A36',
     'panel.border': '#BD93F9',
     'panelTitle.activeBorder': '#FF79C6',
@@ -366,20 +358,14 @@ const theme = {
     },
     {
       name: 'Inline code (prose)',
-      scope: [
-        'markup.inline.raw',
-        'markup.raw.restructuredtext',
-      ],
+      scope: ['markup.inline.raw', 'markup.raw.restructuredtext'],
       settings: {
         foreground: '#50FA7B',
       },
     },
     {
       name: 'Links (prose)',
-      scope: [
-        'markup.underline.link',
-        'markup.underline.link.image',
-      ],
+      scope: ['markup.underline.link', 'markup.underline.link.image'],
       settings: {
         foreground: '#8BE9FD',
       },
@@ -427,9 +413,7 @@ const theme = {
     },
     {
       name: 'Prose constants',
-      scope: [
-        'punctuation.definition.constant.restructuredtext',
-      ],
+      scope: ['punctuation.definition.constant.restructuredtext'],
       settings: {
         foreground: '#BD93F9',
       },
@@ -466,10 +450,7 @@ const theme = {
     },
     {
       name: 'User-defined class names',
-      scope: [
-        'entity.name.type.class',
-        'entity.name.class',
-      ],
+      scope: ['entity.name.type.class', 'entity.name.class'],
       settings: {
         foreground: '#8BE9FD',
         fontStyle: 'normal',
@@ -523,9 +504,7 @@ const theme = {
     },
     {
       name: 'JSDoc-style types',
-      scope: [
-        'comment.block.documentation entity.name.type',
-      ],
+      scope: ['comment.block.documentation entity.name.type'],
       settings: {
         foreground: '#8BE9FD',
         fontStyle: 'italic',
@@ -575,9 +554,7 @@ const theme = {
     },
     {
       name: "CSS attribute parent selectors ('&')",
-      scope: [
-        'entity.other.attribute-name.parent-selector',
-      ],
+      scope: ['entity.other.attribute-name.parent-selector'],
       settings: {
         foreground: '#FF79C6',
       },
@@ -648,10 +625,7 @@ const theme = {
     },
     {
       name: 'Keyword "new"',
-      scope: [
-        'keyword.control.new',
-        'keyword.operator.new',
-      ],
+      scope: ['keyword.control.new', 'keyword.operator.new'],
       settings: {
         fontStyle: 'bold',
       },
@@ -685,10 +659,7 @@ const theme = {
     },
     {
       name: 'Built-in functions / properties',
-      scope: [
-        'support.function',
-        'support.type.property-name',
-      ],
+      scope: ['support.function', 'support.type.property-name'],
       settings: {
         fontStyle: 'regular',
       },
@@ -783,10 +754,7 @@ const theme = {
     },
     {
       name: 'Dates / timestamps (serializable languages)',
-      scope: [
-        'constant.other.date',
-        'constant.other.timestamp',
-      ],
+      scope: ['constant.other.date', 'constant.other.timestamp'],
       settings: {
         foreground: '#FFB86C',
       },
@@ -871,9 +839,7 @@ const theme = {
     },
     {
       name: 'Non-capture operators',
-      scope: [
-        'punctuation.definition.group.capture.regexp',
-      ],
+      scope: ['punctuation.definition.group.capture.regexp'],
       settings: {
         foreground: '#FF79C6',
       },
@@ -890,9 +856,7 @@ const theme = {
     },
     {
       name: 'Character group',
-      scope: [
-        'punctuation.definition.character-class.regexp',
-      ],
+      scope: ['punctuation.definition.character-class.regexp'],
       settings: {
         foreground: '#8BE9FD',
       },
@@ -1006,9 +970,7 @@ const theme = {
     },
     {
       name: 'GraphQL function arguments',
-      scope: [
-        'meta.selectionset.graphql meta.arguments variable',
-      ],
+      scope: ['meta.selectionset.graphql meta.arguments variable'],
       settings: {
         foreground: '#F8F8F2',
       },

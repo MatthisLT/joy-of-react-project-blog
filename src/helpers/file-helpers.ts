@@ -2,16 +2,38 @@ import fs from 'fs/promises';
 import path from 'path';
 import matter from 'gray-matter';
 import React from 'react';
+import { z } from 'zod';
 
-export async function getBlogPostList() {
+const FrontmatterData = z.object({
+  title: z.string(),
+  abstract: z.string(),
+  publishedOn: z.string(),
+});
+
+type FrontmatterData = z.infer<typeof FrontmatterData>;
+
+const FrontmatterResult = z.object({
+  data: FrontmatterData,
+  content: z.string(),
+});
+
+type FrontmatterResult = z.infer<typeof FrontmatterResult>;
+
+interface BlogPost extends FrontmatterData {
+  slug: string;
+}
+
+export async function getBlogPostList(): Promise<BlogPost[]> {
   const fileNames = await readDirectory('/content');
 
-  const blogPosts = [];
+  const blogPosts: BlogPost[] = [];
 
   for (let fileName of fileNames) {
     const rawContent = await readFile(`/content/${fileName}`);
 
-    const { data: frontmatter } = matter(rawContent);
+    const { data: frontmatter } = FrontmatterResult.parse(
+      matter(rawContent)
+    );
 
     blogPosts.push({
       slug: fileName.replace('.mdx', ''),
@@ -25,7 +47,7 @@ export async function getBlogPostList() {
 }
 
 export const loadBlogPost = React.cache(async function loadBlogPost(
-  slug
+  slug: string
 ) {
   let rawContent;
 
@@ -40,10 +62,10 @@ export const loadBlogPost = React.cache(async function loadBlogPost(
   return { frontmatter, content };
 });
 
-function readFile(localPath) {
+function readFile(localPath: string) {
   return fs.readFile(path.join(process.cwd(), localPath), 'utf8');
 }
 
-function readDirectory(localPath) {
+function readDirectory(localPath: string) {
   return fs.readdir(path.join(process.cwd(), localPath));
 }

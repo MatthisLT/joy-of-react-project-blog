@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "new-component": "new-component"
+    "new-component": "new-component",
+    "ts": "tsc --noEmit --incremental"
   },
   "dependencies": {
     "bright": "0.8.4",
@@ -25,5 +26,14 @@
     "react-dom": "18.2.0",
     "react-feather": "2.0.10",
     "rss": "^1.2.2"
+  },
+  "devDependencies": {
+    "@types/js-cookie": "^3.0.6",
+    "@types/node": "^20.11.17",
+    "@types/react": "^18.2.55",
+    "@types/react-dom": "^18.2.19",
+    "@types/rss": "^0.0.32",
+    "typescript": "^5.3.3",
+    "zod": "^3.22.4"
   }
 }

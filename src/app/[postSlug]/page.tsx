@@ -1,4 +1,5 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { notFound } from 'next/navigation';
 
@@ -8,7 +9,15 @@ import BlogHero from '@/components/BlogHero';
 
 import styles from './postSlug.module.css';
 
-export async function generateMetadata({ params }) {
+type PageParams = {
+  params: {
+    postSlug: string;
+  };
+};
+
+export async function generateMetadata({
+  params,
+}: PageParams): Promise<Metadata | undefined> {
   const post = await loadBlogPost(params.postSlug);
 
   if (!post) {
@@ -27,7 +36,7 @@ export async function generateMetadata({ params }) {
   }
 }
 
-async function BlogPost({ params }) {
+async function BlogPost({ params }: PageParams) {
   const post = await loadBlogPost(params.postSlug);
 
   if (!post) {

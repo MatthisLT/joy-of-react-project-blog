@@ -7,6 +7,8 @@ export async function GET() {
   const feed = new RSS({
     title: BLOG_TITLE,
     description: BLOG_DESCRIPTION,
+    feed_url: `${/*env.PRODUCTION_HOST*/ ''}/rss.xml`,
+    site_url: `${/*env.PRODUCTION_HOST*/ ''}`,
   });
 
   const posts = await getBlogPostList();

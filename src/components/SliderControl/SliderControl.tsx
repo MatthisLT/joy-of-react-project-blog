@@ -3,7 +3,16 @@ import React from 'react';
 import Slider from '@/components/Slider';
 import styles from './SliderControl.module.css';
 
-function SliderControl({ label, value, ...delegated }) {
+type SliderControlProps = {
+  label: string;
+  value: string;
+} & React.ComponentProps<typeof Slider>;
+
+function SliderControl({
+  label,
+  value,
+  ...delegated
+}: SliderControlProps) {
   const id = React.useId();
 
   return (

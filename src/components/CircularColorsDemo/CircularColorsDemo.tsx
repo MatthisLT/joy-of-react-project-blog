@@ -61,7 +61,7 @@ function CircularColorsDemo() {
   }, [isPlaying]);
 
   return (
-    <Card as="section" className={styles.wrapper}>
+    <Card className={styles.wrapper}>
       <ul className={styles.colorsWrapper}>
         {COLORS.map((color, index) => {
           const isSelected = color.value === selectedColor.value;
